@@ -1,8 +1,10 @@
 from pathlib import Path
+from argparse import ArgumentParser
 import shutil
+import os
 import sys
-import file_parser as parser
-from normalize import normalize
+import clean_folder.file_parser as parser
+from clean_folder.normalize import normalize
 
 def handle_media(filename: Path, target_folder: Path) -> None:
     target_folder.mkdir(exist_ok=True, parents=True)
@@ -42,6 +44,8 @@ def handle_folder(folder: Path) -> None:
 
 
 def main(folder: Path):
+    
+    folder = Path(os.getcwd())
     parser.scan(folder)
     for file in parser.JPEG_IMEGES:
         handle_media(file, folder / 'images' / 'JPEG')
@@ -102,5 +106,4 @@ def main(folder: Path):
         handle_folder(folder)
 
 if __name__ == '__main__':
-    scan_folder = Path(sys.argv[1])
-    main(scan_folder.resolve())
+    main()

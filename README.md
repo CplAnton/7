@@ -1,1 +1,1 @@
-# 7
+# my homework for GoIT

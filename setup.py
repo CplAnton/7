@@ -5,13 +5,13 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="clean_folder",
-    version="0.0.1",
+    version="1.1.1",
     author="Anton",
     description="doing smth",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/yourusername/clean_folder",
-    packages=setuptools.find_packages(),
+    packages=["clean_folder"],
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
@@ -24,7 +24,7 @@ setuptools.setup(
     python_requires=">=3.7",
     entry_points={
         "console_scripts": [
-            "clean-folder=clean_folder.clean:main"
+            "clean-folder=clean_folder.sort:main"
         ]
     },
 )
